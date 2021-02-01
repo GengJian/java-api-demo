@@ -1,15 +1,15 @@
 package com.soul.java.apidemo.entity;
 
 public class User {
-    String name;
-    int password;
+   public String username;
+   public int password;
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getPassword() {
@@ -23,7 +23,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "name='" + username + '\'' +
                 ", password=" + password +
                 '}';
     }
