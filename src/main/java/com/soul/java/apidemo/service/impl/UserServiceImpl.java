@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
     }
     final UserMapper userMapper;
 
-    ////////////////  GET 请求//////////////////////////////
+    ////////////////  模拟数据操作  //////////////////////////////
 
     @Override
     public User getUserItem() {
@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int addUserItem() {
+    public void addUserItem() {
         String username = "Tom";
         int password = 123;
         User user = new User();
@@ -35,10 +35,10 @@ public class UserServiceImpl implements UserService {
         user.setPassword(password);
         user.setPhone("9999999");
 
-        return userMapper.addUserInfo(user);
+        userMapper.addUserInfo(user);
     }
 
-    ////////////////  POST 请求//////////////////////////////
+    ////////////////  SQL操作 //////////////////////////////
 
     @Override
     public int addUserInfo(String username, int password, String phone) {
@@ -49,6 +49,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> queryByUsername(String username) {
         return userMapper.queryByUsername(username);
+    }
+
+    @Override
+    public List<User> queryUserByPhone(String phone) {
+        return userMapper.queryUserByPhone(phone);
     }
 }
 

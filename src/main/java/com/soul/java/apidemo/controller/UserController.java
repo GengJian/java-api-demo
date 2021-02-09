@@ -3,15 +3,12 @@ package com.soul.java.apidemo.controller;
 import com.soul.java.apidemo.entity.Response;
 import com.soul.java.apidemo.entity.User;
 import com.soul.java.apidemo.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -25,7 +22,7 @@ public class UserController {
         this.service = service;
     }
 
-    //【POST】注册接口
+    //[POST]注册接口
     @RequestMapping(value = "/register", method = POST)
     public Response register(@RequestBody Map<String, String> person){
         String username = person.get("username");
@@ -36,8 +33,8 @@ public class UserController {
 
         //1.判断用户名 & 密码 & 手机号 是否为空
         if (username != null && password != 0 && phone != null){
-            List<User> users = service.queryByUsername(username);
-            //2.判断是否已有重复用户名
+            List<User> users = service.queryUserByPhone(phone);
+            //2.判断是否已有重复手机号
             if (users != null && users.size()>0){
                 return new Response(true, "注册失败，用户名重复", -1);
             } else {
@@ -54,7 +51,7 @@ public class UserController {
         }
     }
 
-    //【POST】登陆接口
+    //[POST]登陆接口
     @RequestMapping(value = "/login", method = POST)
     public Response login(@RequestBody Map<String, String> person) {
         String username = person.get("username");

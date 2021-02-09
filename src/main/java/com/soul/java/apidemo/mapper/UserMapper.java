@@ -14,6 +14,9 @@ public interface UserMapper {
     //添加用户信息
     int addUserInfo(User user);
 
-    //获取用户信息
+    //查询用户信息 - 姓名
     List<User> queryByUsername(String username);
+
+    //查询用户信息 - 手机号
+    List<User> queryUserByPhone(String phone);
 }

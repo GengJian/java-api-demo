@@ -9,14 +9,18 @@
     <result column="phone" jdbcType="VARCHAR" property="phone" />
 </resultMap>
 
-        <!--创建SQL insert语句,然后通过id绑定 Mapper-->
-        <insert id="addUserInfo" parameterType="com.soul.java.apidemo.entity.User">
+    <!--创建SQL insert语句,然后通过id绑定 Mapper-->
+    <insert id="addUserInfo" parameterType="com.soul.java.apidemo.entity.User">
         INSERT INTO user(username, password, phone) VALUES(#{username},#{password},#{phone})
-        </insert>
+    </insert>
 
-        <!--创建SQL select语句,然后通过id绑定 Mapper-->
-        <select id="queryByUsername" resultType="com.soul.java.apidemo.entity.User">
-        SELECT * FROM user WHERE username = #{username}
-        </select>
+    <!--创建SQL select语句,然后通过id绑定 Mapper-->
+    <select id="queryByUsername" resultType="com.soul.java.apidemo.entity.User">
+        SELECT * FROM `user` WHERE 'username' = #{username}
+    </select>
+
+    <select id="queryUserByPhone" resultType="com.soul.java.apidemo.entity.User">
+        SELECT * FROM `user` WHERE 'phone' = #{phone}
+    </select>
 
 </mapper>
