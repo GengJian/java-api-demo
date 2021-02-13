@@ -16,11 +16,11 @@
 
     <!--创建SQL select语句,然后通过id绑定 Mapper-->
     <select id="queryByUsername" resultType="com.soul.java.apidemo.entity.User">
-        SELECT * FROM `user` WHERE 'username' = #{username}
+        SELECT * FROM `user` WHERE `username` = #{username}
     </select>
 
     <select id="queryUserByPhone" resultType="com.soul.java.apidemo.entity.User">
-        SELECT * FROM `user` WHERE 'phone' = #{phone}
+        SELECT * FROM `user` WHERE `phone` = #{phone}
     </select>
 
 </mapper>
